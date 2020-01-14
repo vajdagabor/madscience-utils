@@ -1,0 +1,49 @@
+{
+  "name": "@madscip/utils",
+  "version": "0.1.0",
+  "description": "A utility library for Mad Science projects",
+  "main": "lib/utils.js",
+  "files": [
+    "/lib"
+  ],
+  "scripts": {
+    "build": "babel src -d lib",
+    "dev": "npm run build -- --watch",
+    "test": "jest",
+    "test-watch": "npm run test -- --watch",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "utilities",
+    "library",
+    "generic"
+  ],
+  "author": "Gabor Vajda <gabor@madscience.design>",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vajdagabor/madscience-utils.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vajdagabor/madscience-utils/issues"
+  },
+  "homepage": "https://github.com/vajdagabor/madscience-utils#readme",
+  "babel": {
+    "presets": [
+      "minify",
+      "@babel/preset-env"
+    ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.6.0",
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "babel-eslint": "^10.0.3",
+    "babel-preset-minify": "^0.5.1",
+    "eslint": "^6.8.0",
+    "eslint-config-babel": "^9.0.0",
+    "jest": "^24.9.0",
+    "typescript": "^3.7.4"
+  },
+  "dependencies": {}
+}

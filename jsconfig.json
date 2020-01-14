@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "checkJs": true,
+    "baseUrl": "./src"
+  },
+  "typeAcquisition": {
+    "include": ["jest"]
+  },
+  "exclude": ["node_modules", "lib"]
+}
