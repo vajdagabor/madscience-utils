@@ -1,3 +1,3 @@
 # Mad Science utilities
 
-A collection of generic tools for Mad Science projects.
+A utility library for Mad Science projects.
