@@ -8,10 +8,10 @@
  * @example
  *
  * // Submit form data, and process the results at least 1500 milliseconds later
- * const data = deliverAt(submitForm, Date.now() + 1500)
+ * const data = delay(submitForm, Date.now() + 1500)
  * process(data)
  */
-async function deliverAt(fn, delayUntil = Date.now() + 1000) {
+async function delay(fn, delayUntil = Date.now() + 1000) {
   const result = await fn()
   const remainingTime = delayUntil - Date.now()
   if (remainingTime > 0) {
@@ -20,4 +20,4 @@ async function deliverAt(fn, delayUntil = Date.now() + 1000) {
   return result
 }
 
-export default deliverAt
+export default delay

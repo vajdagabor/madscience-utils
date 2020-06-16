@@ -1,7 +1,7 @@
 export { default as capitalize } from "./capitalize"
 export { default as clamp } from "./clamp"
 export { default as defaultTo } from "./defaultTo"
-export { default as deliverAt } from "./deliver-at"
+export { default as delay } from "./delay"
 export { default as firstNumber } from "./firstNumber"
 export { default as formatNumber } from "./formatNumber"
 export { default as isNumber } from "./isNumber"
