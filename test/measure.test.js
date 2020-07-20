@@ -32,4 +32,16 @@ describe("measure()", () => {
     expect(diff).toBeLessThan(10)
     expect(diff).toBeGreaterThan(-10)
   })
+
+  test("It measures failing functions when canFail is true", async () => {
+    const failingFn = () => {
+      throw new Error("Oh no…")
+    }
+    const start = Date.now()
+    const result = await measure(failingFn, true)
+    const elapsed = Date.now() - start
+    const diff = elapsed - result
+    expect(diff).toBeLessThan(10)
+    expect(diff).toBeGreaterThan(-10)
+  })
 })
