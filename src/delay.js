@@ -12,12 +12,21 @@
  * process(data)
  */
 async function delay(fn, delayUntil = Date.now() + 1000) {
-  const result = await fn()
-  const remainingTime = delayUntil - Date.now()
-  if (remainingTime > 0) {
-    await new Promise(resolve => setTimeout(resolve, remainingTime))
+  const waitTillTheEnd = async () => {
+    const remainingTime = delayUntil - Date.now()
+    if (remainingTime > 0) {
+      await new Promise(resolve => setTimeout(resolve, remainingTime))
+    }
   }
-  return result
+
+  try {
+    const result = await fn()
+    await waitTillTheEnd()
+    return result
+  } catch (error) {
+    await waitTillTheEnd()
+    return Promise.reject(error)
+  }
 }
 
 export default delay

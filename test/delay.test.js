@@ -17,4 +17,21 @@ describe("delay()", () => {
     const duration = await measure(() => delay(() => {}, Date.now() + 500))
     expect(duration).toBeGreaterThanOrEqual(500)
   })
+
+  test("Holds until end of delay if there is an error", async () => {
+    const fails = () => {
+      throw new Error("I don't wanna run…")
+    }
+    const duration = await measure(() => delay(fails, Date.now() + 500), true)
+    expect(duration).toBeGreaterThanOrEqual(500)
+  })
+
+  test("Return rejected promise with the original error if the function fails", async () => {
+    const errorMsg = "Oh no…"
+    const fails = () => {
+      throw new Error(errorMsg)
+    }
+    const result = delay(fails, Date.now() + 10)
+    await expect(result).rejects.toThrowError(errorMsg)
+  })
 })
